@@ -1,2 +1,2 @@
-# PointTransformerv3-Practice
+# PointTransformerV3-Practice
 PointTransformerv3 practice using PyTorch
