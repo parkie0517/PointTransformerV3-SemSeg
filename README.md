@@ -12,15 +12,15 @@ I am using 4 A6000 GPUs.
 
 ## 3. Installation
 Follow the steps below
-- conda update -n base -c anaconda conda
-- conda create -n pointcept python=3.8 -y
-- conda activate pointcept
-- conda install -y ninja
+- conda update -n base -c anaconda conda ✅
+- conda create -n pointcept python=3.8 -y ✅
+- conda activate pointcept ✅
+- conda install -y ninja ✅
 
 The authors of PointTransformerV3 used CUDA==11.8 and PyTorch==2.1.0 (this job might take long)
-- conda install pytorch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 pytorch-cuda=11.8 -c pytorch -c nvidia
+- conda install pytorch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 pytorch-cuda=11.8 -c pytorch -c nvidia ✅
 
-Check if CUDA is available
+Check if CUDA is available ✅
 - pytorch
 - import torch
 - torch.cuda.is_available()
