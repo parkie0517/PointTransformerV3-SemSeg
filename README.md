@@ -9,3 +9,7 @@ A. I'm keeping track of the steps I take for future reference.
 
 ## 2. Connecting to the GPU Server
 1. ...
+
+## 3. Installation
+Follow the steps below
+conda create -n pointcept python=3.8 -y
