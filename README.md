@@ -47,4 +47,5 @@ Okay continue on! Let's install FlashAttention
 - pip install flash-attn --no-build-isolation ✅
 
 ## Dataset Preparation
-I will use S3DIS.
+I will use S3DIS. Thankfully, the authors of PointTransformerV3 provid a preprocessed dataset. Click on the link below to download the dataset.  
+https://connecthkuhk-my.sharepoint.com/personal/wuxy_connect_hku_hk/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fwuxy%5Fconnect%5Fhku%5Fhk%2FDocuments%2Fresearch%2FDatasets%2Fs3dis%2Ezip&parent=%2Fpersonal%2Fwuxy%5Fconnect%5Fhku%5Fhk%2FDocuments%2Fresearch%2FDatasets&p=14
