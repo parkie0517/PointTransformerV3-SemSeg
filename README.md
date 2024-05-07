@@ -55,5 +55,7 @@ https://connecthkuhk-my.sharepoint.com/personal/wuxy_connect_hku_hk/_layouts/15/
 - create a link like this
 ln -s LOCATION_OF_THE_UNZIPPED_DATASET/datasets/s3dis/ ./data/s3dis
 
-## 5. Training
+## 5. Training (S3DIS)
 sh scripts/train.sh -p python -g 4 -d s3dis -c semseg-pt-v3m1-0-rpe -n semseg-pt-v3m1-0-rpe
+
+## 6. Training (NYU Depth V2)
