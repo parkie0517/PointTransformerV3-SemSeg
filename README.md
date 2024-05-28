@@ -37,6 +37,10 @@ Continue on with the installation process
 - cd ./Pointcept/libs/pointops
 - python setup.py install
 
+Go back to the main folder
+- git clone https://github.com/Pointcept/Pointcept.git
+- cd ./Pointcept
+
 Make sure you are downloading the version that matches your CUDA version
 - pip install spconv-cu118 ✅
 
@@ -59,3 +63,5 @@ ln -s LOCATION_OF_THE_UNZIPPED_DATASET/datasets/s3dis/ ./data/s3dis
 sh scripts/train.sh -p python -g 4 -d s3dis -c semseg-pt-v3m1-0-rpe -n semseg-pt-v3m1-0-rpe
 
 ## 6. Training (NYU Depth V2)
+sh scripts/train.sh -p python -g 4 -d s3dis -c semseg-pt-v3m1-0-rpe -n semseg-pt-v3m1-0-rpe
+
