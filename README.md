@@ -78,4 +78,29 @@ You can find all the information about how I converted NYU to point cloud data b
 ## 6. Results
 
 ### 6.1. S3DIS
- 
+I achieved the same result that was presented in the original PointTransformerV3 paper.
+
+### 6.2. NYU
+I trained the model 3 times. Each time, there was a slight difference in the way I trained the model.
+
+| Training | Input                         | Loss                                 | Best mIoU (%) |
+|----------|-------------------------------|--------------------------------------|---------------|
+| Train 1  | Point Cloud, RGB              | All 41 Classes                       | 37.72         |
+| Train 2  | Point Cloud, RGB              | 40 Classes (excluded the void class)  | 36.56         |
+| Train 3  | Point Cloud, RGB, Normal Vector| 40 Classes (excluded the void class)  | 33.81         |
+
+Below is the validation mIoU during trianing.  
+![alt text](./image_src/image.png)
+(Orange: Train 1, Blue: Train 2, Red: Train 3)
+
+## 7. Discussion
+
+### 7.1. ScanNet vs ScanNet200
+- The only difference between the two datasets are the number of classes. ScanNet and ScanNet200 have 21 and 200 classes, respecitvely. Interestingly, the performance dropped by a large margin when the number of classes increased.
+
+### 7.2. NYU
+- It is important to exclude unecessary classes such as void, during training.
+- Though the noraml vector was computed using the 2D depth map, it still offered valuable information to the model.
+- The performance of NYU was relatively low compared to S3DIS and ScanNet for 2 reasons
+    - Incompleteness of the point cloud data (as it was converted from a 2D depth image)
+    - More classes (NYU has 40 classes)
