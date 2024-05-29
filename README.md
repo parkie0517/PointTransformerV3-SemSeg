@@ -1,4 +1,4 @@
-# PointTransformerV3-Practice
+# PointTransformerV3-SemSeg
 PointTransformerv3 practice using PyTorch
 ![alt text](./image_src/title.png)
 
