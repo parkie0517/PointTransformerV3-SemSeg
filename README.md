@@ -1,5 +1,6 @@
 # PointTransformerV3-Practice
 PointTransformerv3 practice using PyTorch
+![alt text](./image_src/title.png)
 
 ## 1. What is this for?
 The purpose of this repo is to practice using PTV3(PointTransformerV3). The dataset I used for training PTV3 was S3DIS and NYU(NYU Depth V2). The original NYU contains 2D depth map and RGB images. Therefore, I had to convert these 2D depth images into point cloud format. I will talk more about the datasets later in the 'Dataset Preparation' section.
