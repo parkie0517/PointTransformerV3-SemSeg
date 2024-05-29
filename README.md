@@ -64,8 +64,18 @@ You can find all the information about how I converted NYU to point cloud data b
 ## 5. Training
 
 ### 5.1. S3DIS
-sh scripts/train.sh -p python -g 4 -d s3dis -c semseg-pt-v3m1-0-rpe -n semseg-pt-v3m1-0-rpe
+- open up './Pointcept/configs/s3dis/semseg-pt-v3m1-0-rpe.py'
+- go to line 69 and make sure the dataset path is properly assigned to 'data_root' variable
+- then, run the command below to train!
+- sh scripts/train.sh -p python -g 4 -d s3dis -c semseg-pt-v3m1-0-rpe -n semseg-pt-v3m1-0-rpe
 
 ### 5.2. NYU
-sh scripts/train.sh -p python -g 4 -d s3dis -c semseg-pt-v3m1-0-rpe -n semseg-pt-v3m1-0-rpe
+- open up './configs/semseg-pt-v3_NYU.py'
+- go to line 73 and make sure the dataset path is properly assigned to 'data_root' variable
+- now run the command below to start training!
+- sh scripts/train.sh -p python -g 4 -d s3dis -c semseg-pt-v3_NYU -n semseg-pt-v3_NYU
 
+## 6. Results
+
+### 6.1. S3DIS
+ 
