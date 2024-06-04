@@ -88,7 +88,7 @@ I trained the model 3 times. Each time, there was a slight difference in the way
 |----------|-------------------------------|--------------------------------------|---------------|
 | Train 1  | Point Cloud, RGB              | All 41 Classes                       |  33.81       |
 | Train 2  | Point Cloud, RGB              | 40 Classes (excluded the void class)  | 36.56         |
-| Train 3  | Point Cloud, RGB, Normal Vector| 40 Classes (excluded the void class)  | 37.72          |
+| **Train 3**  | **Point Cloud, RGB, Normal Vector**| **40 Classes (excluded the void class)**  | **37.72**          |
 
 Below is the validation mIoU during trianing.  
 ![alt text](./image_src/image.png)
