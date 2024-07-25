@@ -105,3 +105,15 @@ Below is the validation mIoU during trianing.
 - The performance of NYU was relatively low compared to S3DIS and ScanNet for 2 reasons
     - Incompleteness of the point cloud data (as it was converted from a 2D depth image)
     - More classes (NYU has 40 classes)
+
+## 8. Visualization
+Inorder to visualize the predicted results, you need to run the test code.
+
+### 8.1. NYU
+- open up './configs/semseg-pt-v3_NYU.py'
+- go to line 73 and make sure the dataset path is properly assigned to 'data_root' variable
+- now run the command below to start training!
+    - sh scripts/test.sh -p ${INTERPRETER_PATH} -g ${NUM_GPU} -d ${DATASET_NAME} -n ${EXP_NAME} -w ${CHECKPOINT_NAME}
+    - sh scripts/test.sh -p python -g 4 -d s3dis -c semseg-pt-v3_NYU -n semseg-pt-v3_NYU -w model_best
+
+
