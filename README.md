@@ -76,12 +76,24 @@ You can find all the information about how I converted NYU to point cloud data b
 - now run the command below to start training!
 - sh scripts/train.sh -p python -g 4 -d s3dis -c semseg-pt-v3_NYU -n semseg-pt-v3_NYU
 
-## 6. Results
+## 6. Testing
 
-### 6.1. S3DIS
+### 6.1. NYU
+Testing of the NYU test dataset can be conducted following the steps below.
+1. open up './configs/semseg-pt-v3_NYU.py'
+2. go to line 73 and make sure the dataset path is properly assigned to 'data_root' variable
+3. now run the command below to start testing
+    - sh scripts/test.sh -p {INTERPRETER_PATH} -g {NUM_GPU} -d {DATASET_NAME} -n {EXP_NAME} -w {CHECKPOINT_NAME}
+    - sh scripts/test.sh -p python -g 4 -d s3dis -c semseg-pt-v3_NYU -n semseg-pt-v3_NYU -w model_best
+
+
+## 7. Results
+
+### 7.1. S3DIS
 I achieved the same result that was presented in the original PointTransformerV3 paper.
 
-### 6.2. NYU
+### 7.2. NYU
+#### 7.2.1. Validation Result
 I trained the model 3 times. Each time, there was a slight difference in the way I trained the model.
 
 | Training | Input                         | Loss                                 | Best mIoU (%) |
@@ -94,26 +106,28 @@ Below is the validation mIoU during trianing.
 ![alt text](./image_src/image.png)
 (Orange: Train 1, Blue: Train 2, Red: Train 3)
 
-## 7. Discussion
+#### 7.2.2. Test Result
+At epoch 74 the validation mIoU was the highest. Therefore, the test dataset evaluation was done using the best model saved at epoch 74. Below is the results.
+- mIoU: 0.3882  
+- mAcc: 0.4799  
+- allAcc: 0.7085  
 
-### 7.1. ScanNet vs ScanNet200
-- The only difference between the two datasets are the number of classes. ScanNet and ScanNet200 have 21 and 200 classes, respecitvely. Interestingly, the performance dropped by a large margin when the number of classes increased.
-
-### 7.2. NYU
-- It is important to exclude unecessary classes such as void, during training.
-- Though the noraml vector was computed using the 2D depth map, it still offered valuable information to the model.
-- The performance of NYU was relatively low compared to S3DIS and ScanNet for 2 reasons
-    - Incompleteness of the point cloud data (as it was converted from a 2D depth image)
-    - More classes (NYU has 40 classes)
+In the discussion section, I will talk about why the result was so low.
 
 ## 8. Visualization
-Inorder to visualize the predicted results, you need to run the test code.
+Inorder to visualize the predicted results, you need to run the test code first!
 
 ### 8.1. NYU
-- open up './configs/semseg-pt-v3_NYU.py'
-- go to line 73 and make sure the dataset path is properly assigned to 'data_root' variable
-- now run the command below to start training!
-    - sh scripts/test.sh -p ${INTERPRETER_PATH} -g ${NUM_GPU} -d ${DATASET_NAME} -n ${EXP_NAME} -w ${CHECKPOINT_NAME}
-    - sh scripts/test.sh -p python -g 4 -d s3dis -c semseg-pt-v3_NYU -n semseg-pt-v3_NYU -w model_best
+![alt text](./image_src/NYU_visualization(000039).png)
 
+### 9.1. ScanNet vs ScanNet200
+- The only difference between the two datasets are the number of classes. ScanNet and ScanNet200 have 21 and 200 classes, respecitvely. Interestingly, the performance dropped by a large margin when the number of classes increased.
 
+### 9.2. NYU
+- It is important to exclude unecessary classes such as void, during training.
+- Though the noraml vector was computed using the 2D depth map, it still offered valuable information to the model.
+- The performance of NYU was relatively low compared to S3DIS and ScanNet for 4 reasons
+    - Incompleteness of the point cloud data. As you can see from the NYU visualization, lots of part are empty.
+    - The point cloud data converted from the RGB-D dataset is very sparse.
+    - It is very difficult to calibrate the RGB and Depth sensors. If you look closely into the NYU visaulization result, you can see a telephone on the desk. But if you look at the "Point Cloud + RGB (from different angle)", you can see that the telephone is strathced. Therefore, the conversion process from an RGB-D to a Point Cloud creates a noise (corruption).
+    - More classes (NYU has 40 classes)
