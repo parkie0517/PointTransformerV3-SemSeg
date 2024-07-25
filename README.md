@@ -107,7 +107,7 @@ Below is the validation mIoU during trianing.
 (Orange: Train 1, Blue: Train 2, Red: Train 3)
 
 #### 7.2.2. Test Result
-At epoch 74 the validation mIoU was the highest. Therefore, the test dataset evaluation was done using the best model saved at epoch 74. Below is the results.
+At epoch 74 the validation mIoU was the highest. Therefore, the test dataset evaluation was done using the best model saved at epoch 74. Below are the results.
 - mIoU: 0.3882  
 - mAcc: 0.4799  
 - allAcc: 0.7085  
